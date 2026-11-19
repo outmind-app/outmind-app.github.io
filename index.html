@@ -138,8 +138,8 @@
             <span lang="tr">App Store'dan indir</span><span lang="en">Download on the App Store</span>
           </a>
         </div>
-        <p class="note" lang="tr">iPhone için ücretsiz · iOS 26 ve sonrası · Hesap yok, reklam yok</p>
-        <p class="note" lang="en">Free for iPhone · iOS 26 or later · No account, no ads</p>
+        <p class="note" lang="tr">iPhone için ücretsiz · iOS 17 ve sonrası · Hesap yok, reklam yok</p>
+        <p class="note" lang="en">Free for iPhone · iOS 17 or later · No account, no ads</p>
       </div>
       <div class="stage">
         <div class="phone"><picture lang="tr"><source srcset="img/trd-01-home.jpg" media="(prefers-color-scheme: dark)"><img src="img/tr-01-home.jpg" alt="OUTMIND ana sayfa: Momo kendi dünyasında" width="560" height="1143"></picture><img lang="en" src="img/en-01-home.jpg" alt="OUTMIND Home: Momo in its world" width="560" height="1143"></div>
@@ -245,7 +245,7 @@
         <p lang="tr">Açabilirsin. "Gerçekten lazım" dediğinde önce Momo'yla nefes alırsın, sonra kısa bir mola seçebilirsin. Sıkı mod açıksa bekleme uzar, yazılı sebep istenir ve günlük mola sayısı sınırlanır.</p>
         <p lang="en">You can. Tap "I really need it", breathe with Momo first, then take a short break. With strict mode on, the wait is longer, a written reason is required, and breaks per day are capped.</p></details>
       <details class="chunky"><summary><span lang="tr">Hangi cihazlarda çalışır?</span><span lang="en">Which devices does it run on?</span></summary>
-        <p lang="tr">iOS 26 veya sonrası yüklü iPhone'larda.</p><p lang="en">iPhone with iOS 26 or later.</p></details>
+        <p lang="tr">iOS 17 veya sonrası yüklü iPhone'larda.</p><p lang="en">iPhone with iOS 17 or later.</p></details>
     </section>
 
     <section class="final chunky">
@@ -267,7 +267,8 @@
   (function () {
     var saved = null;
     try { saved = localStorage.getItem('outmind.lang'); } catch (e) {}
-    var lang = saved || ((navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en');
+    var q = (location.search.match(/[?&]lang=(tr|en)/) || [])[1];
+    var lang = q || saved || 'tr';
     function apply(l) {
       document.documentElement.lang = l;
       document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.setLang === l)); });
